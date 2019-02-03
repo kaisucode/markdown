@@ -1,0 +1,2 @@
+pandoc: unrecognized option `--pdf-engine'
+Try pandoc --help for more information.
