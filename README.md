@@ -1,19 +1,6 @@
 
-* hai
-* **hai**
-* **lol**
-<div style="page-break-before: always;"></div>
-temp<br>
-temp<br>
-temp<br>
-temp<br>
-temp<br>
-temp<br>
-temp<br>
-temp<br>
-temp<br>
-temp<br>
-temp<br>
+* [Reddit Inspiration](https://www.reddit.com/r/unixporn/comments/al1uge/i3wm_my_comfy_notetaking_setup/)
+* Better font, background, and syntax color for md?
+* Cut process as editor exits
 
-hai
 
