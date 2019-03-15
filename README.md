@@ -4,4 +4,5 @@
 * ~~Cut process as editor exits~~
 * ~~Kill mupdf on nvim exit~~
 * Add try-catch for everything and prevent printing errors (write to log instead?)
+* [PASS IN ARGS](https://www.lifewire.com/pass-arguments-to-bash-script-2200571)
 
