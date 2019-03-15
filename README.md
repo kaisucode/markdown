@@ -3,6 +3,6 @@
 * ~~Better font, background, and syntax color for md?~~
 * ~~Cut process as editor exits~~
 * ~~Kill mupdf on nvim exit~~
+* ~~[PASS IN ARGS](https://www.lifewire.com/pass-arguments-to-bash-script-2200571)~~
 * Add try-catch for everything and prevent printing errors (write to log instead?)
-* [PASS IN ARGS](https://www.lifewire.com/pass-arguments-to-bash-script-2200571)
 
