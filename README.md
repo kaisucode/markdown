@@ -6,3 +6,6 @@
 * ~~[PASS IN ARGS](https://www.lifewire.com/pass-arguments-to-bash-script-2200571)~~
 * Add try-catch for everything and prevent printing errors (write to log instead?)
 
+
+## Remember to use version > 0.12.5 (font size bug 0.12.4)
+
