@@ -4,16 +4,31 @@ mdName=$@
 fileExt=".pdf"
 pdfFilename="${mdName: 0:-3}$fileExt"
 
+function block_for_change {
+	inotifywait \
+		-qe modify \
+		$mdName
+	:
+}
+
+function updatePDF {
+	while block_for_change ; do
+		pandoc --highlight=tango -f markdown -t html5 $@ > wkhtmltopdf -o $pdfFilename
+		pkill -HUP mupdf
+	done
+}
+
+if ! $( [ -f $@ ] ); then
+	echo >> $@
+fi 
 
 pandoc --highlight=tango -f markdown -t html5 $@ > wkhtmltopdf -o $pdfFilename
 
-mupdf $pdfFilename & . ~/Scripts/markdown/code/syncPDF.sh & nvim $@;
-kill $(pgrep mupdf); 
+mupdf $pdfFilename & 
+updatePDF & 
+nvim $@
 
-trap "exit" INT TERM
-trap "kill 0" EXIT
-
-
+kill $(pgrep mupdf) 
+kill $!
 # fg;
-# pkill -f ~/Scripts/markdown/code/syncPDF.sh;
 
