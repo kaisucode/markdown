@@ -1,22 +1,18 @@
 #!/bin/bash
 
-FIle_EXTENSION_TO_OBSERVE=$@
+mdName=$@
+fileExt=".pdf"
+pdfFilename="${mdName: 0:-3}$fileExt"
 
 function block_for_change {
 	inotifywait \
 		-qe modify \
-		$FIle_EXTENSION_TO_OBSERVE
+		$mdName
 	:
 }
 
-noExt=$@
-fileExt=".pdf"
-pdfFilename="${noExt: 0:-3}$fileExt"
-
 while block_for_change ; do
-# while block_for_change | read event $FIle_EXTENSION_TO_OBSERVE; do
-# while block_for_change | fileClosed ; do
-	pandoc --highlight=tango -f markdown -t html5 $@ > wkhtmltopdf -o $pdfFilename
+	pandoc --highlight=tango -f markdown -t html5 $mdName > wkhtmltopdf -o $pdfFilename
 	pkill -HUP mupdf
 done
 echo "end"
